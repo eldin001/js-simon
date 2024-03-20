@@ -49,16 +49,13 @@ function hideNumbers() {
     const containerElement = document.getElementById('container');
     containerElement.style.display = 'none'; 
   }
-
+//funzione per far riapparire l'area di input
 function displayInputArea() {
     document.getElementById('input-container').style.display = 'flex'; 
 }
-
-setTimeout(hideNumbers, 5000);
-setTimeout(displayInputArea, 5000)
-
-
-
+//timeout
+setTimeout(hideNumbers, 30000);
+setTimeout(displayInputArea, 30000)
 //funzione per prendere l'input dell'utente
 function collectInput() {  
     userNumbers = [];
@@ -91,25 +88,20 @@ function compareNumbers(userNumbers, randomNumbers) {
     };
   }
  
-  console.log(randomNumbers)
-
 //elemento bottone genera numeri casuali
 let generateNumbersButton = document.getElementById('generate-numbers');
 
 generateNumbersButton.addEventListener('click', function() {
     generateGameNumber();
 },{ once: true })
-
 //elemento bottone invia valori input
-
 let chechkNumberButton = document.getElementById('check-numbers');
 
 chechkNumberButton.addEventListener('click', function() {
     collectInput() 
     const result = compareNumbers(userNumbers, randomNumbers);
     let outcomeElement = document.getElementById('outcome');
-    outcomeElement.textContent = `Hai indovinato ${result.correctCount} numeri: ${result.correctNumbers.join(', ')}`
-    console.log(`Hai indovinato ${result.correctCount} numeri: ${result.correctNumbers.join(', ')}`);
+    outcomeElement.textContent = `Hai indovinato ${result.correctCount} numeri: ${result.correctNumbers.join(', ')}`  
 })
 
 
