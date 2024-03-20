@@ -12,22 +12,32 @@ Consigli del giorno:
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
-
+//funzione per generare i numeri del gioco e le box
 function generateGameNumber () {
     let randomNumbers = [];
     while (randomNumbers.length < 5) {
+        generateInput();
         let divElement = document.createElement('div');
         divElement.classList.add('box');
         let containerElement = document.getElementById('container');
         containerElement.appendChild(divElement);
         let numbers = getRndInteger(1, 100);
-        divElement.textContent = numbers;
+        divElement.innerText = numbers;
         if(!randomNumbers.includes(numbers)) {
             randomNumbers.push(numbers);
         }
     } return randomNumbers;    
 }
 
-console.log(generateGameNumber());
+function generateInput() {
+    let inputElement =  document.createElement('input');
+    inputElement.classList.add('box')
+    let inputContainerElement = document.getElementById('input-container');
+    inputContainerElement.appendChild(inputElement);
+}
 
+let generateNumbersButton = document.getElementById('generate-numbers');
 
+generateNumbersButton.addEventListener('click', function() {
+    generateGameNumber();
+})
