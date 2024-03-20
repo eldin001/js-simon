@@ -28,9 +28,11 @@ function generateGameNumber () {
         }
     } return randomNumbers;    
 }
-
+//funzione per prendere l'input dell'utente
 
 function collectInput() {  
+    userNumbers = [];
+    console.log(userNumbers);
     for (let i = 1; i <= 5; i++) {
       let inputElement = document.getElementById(`input${i}`);
       const number = parseInt(inputElement.value);
@@ -39,10 +41,30 @@ function collectInput() {
         return;
       }
       userNumbers.push(number);
+      
     }
 }
 
-console.log(userNumbers);
+function compareNumbers(userNumbers, randomNumbers) {
+    let correctCount = 0;
+    let correctNumbers = [];
+    // Confronta ogni numero inserito con i numeri casuali
+    for (let i = 0; i < userNumbers.length; i++) {
+      if (randomNumbers.includes(userNumbers[i])) {
+        correctCount++;
+        correctNumbers.push(userNumbers[i]);
+      }
+    }
+    return {
+      correctCount,
+      correctNumbers,
+    };
+  }
+ 
+  console.log(randomNumbers)
+
+
+
 
 //elemento bottone genera numeri casuali
 let generateNumbersButton = document.getElementById('generate-numbers');
@@ -57,6 +79,8 @@ let chechkNumberButton = document.getElementById('check-numbers');
 
 chechkNumberButton.addEventListener('click', function() {
     collectInput() 
+    const result = compareNumbers(userNumbers, randomNumbers);
+    console.log(`Hai indovinato ${result.correctCount} numeri: ${result.correctNumbers.join(', ')}`);
 })
 
 
