@@ -28,8 +28,8 @@ function generateGameNumber () {
         }
     } return randomNumbers;    
 }
-//funzione per prendere l'input dell'utente
 
+//funzione per prendere l'input dell'utente
 function collectInput() {  
     userNumbers = [];
     console.log(userNumbers);
@@ -44,7 +44,37 @@ function collectInput() {
       
     }
 }
+//funzione per far sparire i numeri 
+function hideNumbers() {
+    const containerElement = document.getElementById('container');
+    containerElement.style.display = 'none'; 
+  }
 
+function displayInputArea() {
+    document.getElementById('input-container').style.display = 'flex'; 
+}
+
+setTimeout(hideNumbers, 5000);
+setTimeout(displayInputArea, 5000)
+
+
+
+//funzione per prendere l'input dell'utente
+function collectInput() {  
+    userNumbers = [];
+    console.log(userNumbers);
+    for (let i = 1; i <= 5; i++) {
+      let inputElement = document.getElementById(`input${i}`);
+      const number = parseInt(inputElement.value);
+      if (isNaN(number)) {
+        alert(`Il valore inserito nell'input ${i} non è un numero.`);
+        return;
+      }
+      userNumbers.push(number);
+      
+    }
+}
+//funzione per comparare i numeri
 function compareNumbers(userNumbers, randomNumbers) {
     let correctCount = 0;
     let correctNumbers = [];
@@ -63,9 +93,6 @@ function compareNumbers(userNumbers, randomNumbers) {
  
   console.log(randomNumbers)
 
-
-
-
 //elemento bottone genera numeri casuali
 let generateNumbersButton = document.getElementById('generate-numbers');
 
@@ -80,6 +107,8 @@ let chechkNumberButton = document.getElementById('check-numbers');
 chechkNumberButton.addEventListener('click', function() {
     collectInput() 
     const result = compareNumbers(userNumbers, randomNumbers);
+    let outcomeElement = document.getElementById('outcome');
+    outcomeElement.textContent = `Hai indovinato ${result.correctCount} numeri: ${result.correctNumbers.join(', ')}`
     console.log(`Hai indovinato ${result.correctCount} numeri: ${result.correctNumbers.join(', ')}`);
 })
 
