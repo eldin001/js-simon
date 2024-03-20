@@ -15,11 +15,19 @@ function getRndInteger(min, max) {
 
 function generateGameNumber () {
     let randomNumbers = [];
-    while (randomNumbers.lenght < 5) {
+    while (randomNumbers.length < 5) {
+        let divElement = document.createElement('div');
+        divElement.classList.add('box');
+        let containerElement = document.getElementById('container');
+        containerElement.appendChild(divElement);
         let numbers = getRndInteger(1, 100);
+        divElement.textContent = numbers;
         if(!randomNumbers.includes(numbers)) {
             randomNumbers.push(numbers);
         }
-        
-    }
+    } return randomNumbers;    
 }
+
+console.log(generateGameNumber());
+
+
