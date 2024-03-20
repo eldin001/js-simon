@@ -54,8 +54,8 @@ function displayInputArea() {
     document.getElementById('input-container').style.display = 'flex'; 
 }
 //timeout
-setTimeout(hideNumbers, 30000);
-setTimeout(displayInputArea, 30000)
+setTimeout(hideNumbers, 3000);
+setTimeout(displayInputArea, 3000)
 //funzione per prendere l'input dell'utente
 function collectInput() {  
     userNumbers = [];
@@ -71,6 +71,8 @@ function collectInput() {
       
     }
 }
+//funzione timer
+
 //funzione per comparare i numeri
 function compareNumbers(userNumbers, randomNumbers) {
     let correctCount = 0;

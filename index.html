@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>js-simon</title>
 </head>
 <body>
     <div main>
         <h1>Gioca</h1>
+        <p><em>Regole:</em>Hai 30 secondi per memorizzare i numeri che vengono mostrati nei riquadri sottostanti. Alla fine dei 30 secondi inserisci i numeri nell'ordine giusto.</p>
         <div id="container">
 
             <button id="generate-numbers">Generea numeri</button>
@@ -16,13 +20,13 @@
     </div>
 
     <div id="input-container">
-        <h2>Inserisci i numeri.</h2>
-        <input type="number" class="box" id="input1">
-        <input type="number" class="box" id="input2">
-        <input type="number" class="box" id="input3">
-        <input type="number" class="box" id="input4">
-        <input type="number" class="box" id="input5">
-        <button id="check-numbers">Invia Numeri</button>
+        <h2>Inserisci i numeri. </h2>
+        <input type="text" class="box" id="input1">
+        <input type="text" class="box" id="input2">
+        <input type="text" class="box" id="input3">
+        <input type="text" class="box" id="input4">
+        <input type="text" class="box" id="input5">
+        <button id="check-numbers">Invia</button>
     </div>
     
     <div id="outcome"></div>
