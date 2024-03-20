@@ -54,8 +54,8 @@ function displayInputArea() {
     document.getElementById('input-container').style.display = 'flex'; 
 }
 //timeout
-setTimeout(hideNumbers, 3000);
-setTimeout(displayInputArea, 3000)
+setTimeout(hideNumbers, 10000);
+setTimeout(displayInputArea, 10000)
 //funzione per prendere l'input dell'utente
 function collectInput() {  
     userNumbers = [];
