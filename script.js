@@ -12,11 +12,11 @@ Consigli del giorno:
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
+  let userNumbers = [];
+  let randomNumbers = [];
 //funzione per generare i numeri del gioco e le box
 function generateGameNumber () {
-    let randomNumbers = [];
     while (randomNumbers.length < 5) {
-        generateInput();
         let divElement = document.createElement('div');
         divElement.classList.add('box');
         let containerElement = document.getElementById('container');
@@ -29,15 +29,35 @@ function generateGameNumber () {
     } return randomNumbers;    
 }
 
-function generateInput() {
-    let inputElement =  document.createElement('input');
-    inputElement.classList.add('box')
-    let inputContainerElement = document.getElementById('input-container');
-    inputContainerElement.appendChild(inputElement);
+
+function collectInput() {  
+    for (let i = 1; i <= 5; i++) {
+      let inputElement = document.getElementById(`input${i}`);
+      const number = parseInt(inputElement.value);
+      if (isNaN(number)) {
+        alert(`Il valore inserito nell'input ${i} non è un numero.`);
+        return;
+      }
+      userNumbers.push(number);
+    }
 }
 
+console.log(userNumbers);
+
+//elemento bottone genera numeri casuali
 let generateNumbersButton = document.getElementById('generate-numbers');
 
 generateNumbersButton.addEventListener('click', function() {
     generateGameNumber();
+},{ once: true })
+
+//elemento bottone invia valori input
+
+let chechkNumberButton = document.getElementById('check-numbers');
+
+chechkNumberButton.addEventListener('click', function() {
+    collectInput() 
 })
+
+
+
